@@ -1,16 +1,11 @@
 package Test;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import util.Base;
 import util.ProjectConfig;
 import util.TestContextSetup;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -93,11 +88,8 @@ public class ParaBankTest {
             tcs.Setup().GetTransferFund().EnterAmount(amount);
             Thread.sleep(2000);
             tcs.Setup().GetTransferFund().SelectFromAccount(fromAccount);
-
             tcs.Setup().GetTransferFund().SelectToAcc(toAcccount);
-
             tcs.Setup().GetTransferFund().Transfer();
-
             Assert.assertEquals(tcs.Setup().GetTransferFund().Transfer(), "Transfer Funds");
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
@@ -130,18 +122,14 @@ public class ParaBankTest {
     public void validatingRequestLoan() {
         try {
             tcs.Setup().GetHomePage().RequestLoan();
-
             tcs.Setup().GetRequestLoan().EnterLoanAmount("100");
-
             tcs.Setup().GetRequestLoan().EnterDownPayment("10");
-
             tcs.Setup().GetRequestLoan().ClickApplyNow();
             Thread.sleep(3000);
         } catch (Exception e) {
 
         }
         Assert.assertEquals(tcs.Setup().GetRequestLoan().VerifyLoanApproval(), "Loan Request Processed");
-
     }
 
     @DataProvider(name = "AccountDetails")

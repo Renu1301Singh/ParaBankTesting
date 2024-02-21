@@ -100,16 +100,20 @@ public void NewUserRegister(){
         wait.until(ExpectedConditions.visibilityOf(userName));
         userName.sendKeys(username);
     }
+    public boolean ErrorMessage() {
+        try {
+            String message = "An internal error has occurred and has been logged.";
+            return message.equals(errorMsg.getText());
+        } catch (NoSuchElementException e) {
+            return false;
+        }
 
+    }
     public void Password(String Pswd) {
         wait.until(ExpectedConditions.visibilityOf(password));
         password.sendKeys(Pswd);
     }
 
-//    public void ConfirmPassword(String ConfirmPswd) {
-//        wait.until(ExpectedConditions.visibilityOf(RegconfirmPassword));
-//        RegconfirmPassword.sendKeys(ConfirmPswd);
-//    }
 public void RegUserName(String NewUserName){
         wait.until(ExpectedConditions.visibilityOf(RegUserName));
         RegUserName.sendKeys(NewUserName);
@@ -126,13 +130,5 @@ public void RegUserPassword(String NewPass){
         logIn.click();
     }
 
-    public boolean ErrorMessage() {
-        try {
-            String message = "An internal error has occurred and has been logged.";
-            return message.equals(errorMsg.getText());
-        } catch (NoSuchElementException e) {
-            return false;
-        }
 
-    }
 }

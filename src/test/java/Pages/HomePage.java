@@ -24,27 +24,20 @@ public class HomePage {
 
     @FindBy(css = "a[href='/parabank/requestloan.htm']")
     WebElement requestLoan;
-
-
     public HomePage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
     }
-
     public void OpenNewAccount() {
         openNewAccount.click();
     }
-
     public void TransferFund() {
         transferFund.click();
     }
-
     public void BillPay() {
         billPay.click();
     }
-
-
     public void RequestLoan() {
         requestLoan.click();
     }

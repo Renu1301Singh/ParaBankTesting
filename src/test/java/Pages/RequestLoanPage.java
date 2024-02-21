@@ -19,7 +19,10 @@ public class RequestLoanPage {
     WebElement applyNow;
     @FindBy(css = ".title")
     WebElement loanSuccessfull;
+    public String VerifyLoanApproval() {
+        return loanSuccessfull.getText();
 
+    }
     public RequestLoanPage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -38,10 +41,5 @@ public class RequestLoanPage {
     public void ClickApplyNow() {
 
         applyNow.click();
-    }
-
-    public String VerifyLoanApproval() {
-        return loanSuccessfull.getText();
-
     }
 }
