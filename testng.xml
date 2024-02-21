@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="/home/knoldus/IdeaProjects/ParaBankTesting">
+        <classes>
+            <class name="Test.ParaBankTest">
+                <methods>
+                    <include name="OpenAccount"/>
+                    <include name="OpenNewAccount"/>
+                    <include name="ValidatingTranseferFunds"/>
+                    <include name="validatingBillPay"/>
+                    <include name="validatingRequestLoan"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test thread-count="5" name="ChromeTest">
+        <parameter name="browser" value="chrome"></parameter>
+        <classes>
+            <class name="Test.ParaBankTest" />
+        </classes>
+    </test> <!-- Test -->
+    <test thread-count="5" name="FirefoxTest">
+        <parameter name="browser" value="firefox"></parameter>
+        <classes>
+            <class name="Test.ParaBankTest" />
+        </classes>
+    </test> <!-- Test -->
+    <test thread-count="5" name="EdgeTest">
+        <parameter name="browser" value="edge"></parameter>
+        <classes>
+            <class name="Test.ParaBankTest" />
+        </classes>
+    </test>
+</suite>
