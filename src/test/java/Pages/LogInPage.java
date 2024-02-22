@@ -30,7 +30,7 @@ public class LogInPage {
     WebElement phoneNumber;
     @FindBy(xpath = "//input[@id='customer.ssn']")
     WebElement SSN;
-    @FindBy(xpath = "//a[normalize-space()='Register']']") WebElement NewRegister;
+    @FindBy(css = "#loginPanel>p:nth-of-type(2)>a") WebElement NewRegister;
 
     @FindBy(css = "input[name='username']")
 
@@ -38,7 +38,7 @@ public class LogInPage {
     @FindBy(xpath = "//input[@id='customer.username']") WebElement RegUserName;
     @FindBy(css = "input[name='password']")
     WebElement password;
-    @FindBy(xpath = "//input[@id='customer.password']") WebElement RegUserPassword;
+    @FindBy(css = "input[name='customer.password']") WebElement RegUserPassword;
     @FindBy(css= "#repeatedPassword")
     WebElement RegconfirmPassword;
     @FindBy(css = "input[value='Register']")
@@ -121,6 +121,11 @@ public void RegUserName(String NewUserName){
 public void RegUserPassword(String NewPass){
         wait.until(ExpectedConditions.visibilityOf(RegUserPassword));
         RegUserPassword.sendKeys(NewPass);
+
+}
+public void VerifyPassword(String Pass){
+        wait.until(ExpectedConditions.visibilityOf(RegconfirmPassword));
+        RegconfirmPassword.sendKeys(Pass);
 }
     public void CLickRegister() {
         Register.click();

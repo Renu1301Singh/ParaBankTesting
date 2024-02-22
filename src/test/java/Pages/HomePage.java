@@ -11,18 +11,18 @@ import java.time.Duration;
 public class HomePage {
     WebDriver driver;
     WebDriverWait wait;
-    @FindBy(css = "a[href='/parabank/openaccount.htm']")
+    @FindBy(css = "#leftPanel>ul>li:nth-of-type(1)>a")
     WebElement openNewAccount;
-    @FindBy(css = "a[href='/parabank/transfer.htm']")
+    @FindBy(css = "#leftPanel>ul>li:nth-of-type(3)>a")
     WebElement transferFund;
 
-    @FindBy(css = "a[href='/parabank/billpay.htm']")
+    @FindBy(css = "#leftPanel>ul>li:nth-of-type(4)>a")
     WebElement billPay;
 
     @FindBy(css = "a[href='/parabank/overview.htm']")
     WebElement accountOverview;
 
-    @FindBy(css = "a[href='/parabank/requestloan.htm']")
+    @FindBy(css = "#leftPanel>ul>li:nth-of-type(7)>a")
     WebElement requestLoan;
     public HomePage(WebDriver driver) {
         this.driver = driver;

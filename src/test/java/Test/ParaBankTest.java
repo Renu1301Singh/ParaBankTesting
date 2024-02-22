@@ -38,6 +38,7 @@ public class ParaBankTest {
             tcs.Setup().GetLogin().ssn("123");
             tcs.Setup().GetLogin().RegUserName("Tester007");
             tcs.Setup().GetLogin().RegUserPassword("007Testing");
+            tcs.Setup().GetLogin().VerifyPassword("007Testing");
             tcs.Setup().GetLogin().CLickRegister();
         }
     }
@@ -69,6 +70,7 @@ public class ParaBankTest {
                 csvWriter.append(Account.get(k) + "," + Account.get(k) + "," + amount);
 
                 csvWriter.append("\n");
+
                 amount += 100;
             }
 
