@@ -1,0 +1,28 @@
+name: Automated_Testing_Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+ selenium_test:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Install Java
+      uses: actions/setup-java@v2
+      with:
+        java-version: '21'  
+        distribution: 'adopt'
+
+    - name: Install Maven
+      run: sudo apt-get install maven
+
+    - name: Run Selenium tests with Maven
+      run: mvn clean test -Dtest=ParaBankTest
+      
+      
